@@ -263,37 +263,37 @@ def _b(a: Array):
 # # ### Solve ODE
 
 
-# %%
-def coeffs(t, a, args):
-    nu = args[0]
-    return nu * _b(a)
+# # %%
+# def coeffs(t, a, args):
+#     nu = args[0]
+#     return nu * _b(a)
 
 
-term = ODETerm(coeffs)
-solver = Dopri5()
+# term = ODETerm(coeffs)
+# solver = Dopri5()
 
-solution = diffeqsolve(
-    term,
-    solver,
-    t0=0.0,
-    t1=T,
-    dt0=step_size,
-    y0=a_0,
-    args=(viscosity,),
-    saveat=SaveAt(ts=jnp.linspace(0, T, T * 100)),
-    max_steps=2**16,
-)
+# solution = diffeqsolve(
+#     term,
+#     solver,
+#     t0=0.0,
+#     t1=T,
+#     dt0=step_size,
+#     y0=a_0,
+#     args=(viscosity,),
+#     saveat=SaveAt(ts=jnp.linspace(0, T, T * 100)),
+#     max_steps=2**16,
+# )
 
-# 5) Grab time-series
-ts = solution.ts
-ys = solution.ys
+# # 5) Grab time-series
+# ts = solution.ts
+# ys = solution.ys
 
-# %%
-plt.figure()
-plt.plot(ts, ys[:, 0], label="a1")
-plt.plot(ts, ys[:, 1], label="a2")
-plt.xlabel("Time")
-plt.ylabel("y")
-plt.title("Solutions a1, a2 over time")
-plt.legend()
-plt.show()
+# # %%
+# plt.figure()
+# plt.plot(ts, ys[:, 0], label="a1")
+# plt.plot(ts, ys[:, 1], label="a2")
+# plt.xlabel("Time")
+# plt.ylabel("y")
+# plt.title("Solutions a1, a2 over time")
+# plt.legend()
+# plt.show()
