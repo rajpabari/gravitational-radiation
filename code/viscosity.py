@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 key = random.PRNGKey(758493)
 
 config.update("jax_enable_x64", True)
+config.update("jax_disable_jit", True)
 
 # %% [markdown]
 # ### Define relevant constants
